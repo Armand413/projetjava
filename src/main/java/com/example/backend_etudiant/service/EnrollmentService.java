@@ -25,7 +25,7 @@ public class EnrollmentService {
 
     // CREATE
     public Enrollment createEnrollment(Long studentId, Long courseId) {
-        Student student = studentRepository.findById(Math.toIntExact(studentId))
+        Student student = studentRepository.findById(studentId)
                 .orElseThrow(() -> new RuntimeException("Étudiant non trouvé avec id: " + studentId));
         Course course = courseRepository.findById(courseId)
                 .orElseThrow(() -> new RuntimeException("Cours non trouvé avec id: " + courseId));
