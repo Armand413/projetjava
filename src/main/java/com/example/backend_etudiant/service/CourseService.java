@@ -2,6 +2,7 @@ package com.example.backend_etudiant.service;
 
 import com.example.backend_etudiant.entite.Course;
 import com.example.backend_etudiant.repository.CourseRepository;
+import com.example.backend_etudiant.repository.EnrollmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +40,14 @@ public class CourseService {
     }
 
     // DELETE
+   // public void deleteCourse(Long id) {
+    //    courseRepository.deleteById(id);
+   // }
+    @Autowired
+    private EnrollmentRepository enrollmentRepository;
+
     public void deleteCourse(Long id) {
+        enrollmentRepository.deleteByCourseId(id);
         courseRepository.deleteById(id);
     }
 }

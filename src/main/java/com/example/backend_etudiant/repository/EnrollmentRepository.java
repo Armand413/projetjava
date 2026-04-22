@@ -6,5 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EnrollmentRepository extends JpaRepository<Enrollment, Long> {
+    void deleteByStudentId(Long studentId);
+    void deleteByCourseId(Long courseId);
 
 }
